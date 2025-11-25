@@ -19,9 +19,9 @@ para Excel. Depois veio a se tornar a linguagem principal do Power BI.
 
 // Fórmulas DAX são usadas principalmente para criar medidas, colunas e tabelas.
 
-/////////////
+/////////////////
 // MEDIDAS
-/////////////
+/////////////////
 
 // Medidas são fórmulas criadas com a linguagem DAX para realizar cálculos
 // como soma ou média, que retornam um único valor e se adaptam a filtros.
@@ -29,18 +29,26 @@ para Excel. Depois veio a se tornar a linguagem principal do Power BI.
 // Uma medida pode usar funções DAX de agregação, data e hora,
 // inteligência de tempo, lógica, texto, tabela, iteração,
 // matemática e estatística, informação de valores, relacionamento,
-// manipulação de filtros e contexto, parent/child, ranking e também de
+// manipulação de filtros e contexto, parent/child, ranking e também
 // funções especiais próprias da linguagem.
 
-// Medidas criadas podem ser utilizadas como argumento para outras medidas.
+/////////////////
+// FUNÇÕES DAX
+/////////////////
 
-Quando você define uma fórmula para uma medida na barra de fórmulas, um recurso de Dica de Ferramenta mostra uma visualização de quais seriam os resultados para o total no contexto atual, mas caso contrário, os resultados não são imediatamente gerados em qualquer lugar. O motivo pelo qual você não pode ver os resultados (filtrados) do cálculo imediatamente é porque o resultado de uma medida não pode ser determinado sem contexto. Para avaliar uma medida, é necessário um aplicativo cliente de relatório que possa fornecer o contexto necessário para recuperar os dados relevantes para cada célula e, em seguida, avaliar a expressão para cada célula. Esse cliente pode ser uma Tabela Dinâmica ou um Gráfico Dinâmico do Excel, um relatório do Power BI ou uma expressão de tabela em uma consulta DAX no SSMS (SQL Server Management Studio).
+// SUM soma todos os números de uma coluna.
+SUM('BaseProdução'[Qtd Rejeitada])
 
-Independentemente do cliente, uma consulta separada é executada para cada célula nos resultados. Ou seja, cada combinação de cabeçalhos de linha e coluna em uma Tabela Dinâmica ou cada seleção de segmentações e filtros em um relatório do Power BI gera um subconjunto diferente de dados sobre os quais a medida é calculada. Por exemplo, usando esta fórmula de medida muito simples:
+// SUMX retorna a soma das colunas escolhidas em uma tabela
+SUMX(
+    'BaseProdução',
+    'BaseProdução'[Qtd Aprovada] + 'BaseProdução'[Qtd Rejeitada]
+)
 
-/////////////
-// FUNÇÕES
-/////////////
-
+//CALCULATE avalia uma expressão matemática de acordo com o filtro indicado
+CALCULATE(
+	SUM('BaseProdução'[Total Horas]),
+	'BaseProdução'[Ocorrência] = "Manutenção"
+)
 
 
