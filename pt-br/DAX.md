@@ -19,9 +19,9 @@ para Excel. Depois veio a se tornar a linguagem principal do Power BI.
 
 // Fórmulas DAX são usadas principalmente para criar medidas, colunas e tabelas.
 
-/////////////////
+//////////////////////////////////
 // MEDIDAS
-/////////////////
+//////////////////////////////////
 
 // Medidas são fórmulas criadas com a linguagem DAX para realizar cálculos
 // como soma ou média, que retornam um único valor e se adaptam a filtros.
@@ -32,33 +32,29 @@ para Excel. Depois veio a se tornar a linguagem principal do Power BI.
 // manipulação de filtros e contexto, parent/child, ranking e também
 // funções especiais próprias da linguagem.
 
-/////////////////
-// OPERADORES
-/////////////////
+//////////////////////////////////
+// OPERADORES E FUNÇÕES LÓGICAS
+//////////////////////////////////
 
-// Valores Booleanos
+= //Igualdade
+<> //Desigualdade
+&& //AND
+|| //OR
 
+// Abaixo seguem algumas das mais utilizadas
+TRUE()
+FALSE()
+AND()
+OR()
+NOT()
+ISBLANK()
+ISEMPTY()
+IF()
+COALESCE() //Funciona igual a função em SQL
 
-# Equality is ==
-1 == 1  # => True
-2 == 1  # => False
-
-# Inequality is !=
-1 != 1  # => False
-2 != 1  # => True
-
-# More comparisons
-1 < 10  # => True
-1 > 10  # => False
-2 <= 2  # => True
-2 >= 2  # => True
-
-# Strings are created with " or '
-"This is a string."
-
-/////////////////
+//////////////////////////////////
 // FUNÇÕES DAX
-/////////////////
+//////////////////////////////////
 
 // O que está entre ' ' se refere a tabela, exemplo: 'BaseProdução'
 // O que está entre [ ] se refere a uma coluna, exemplo: [Qtd Rejeitada]
